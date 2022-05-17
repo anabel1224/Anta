@@ -1,0 +1,107 @@
+<div><h1>{{titulo}}</h1></div>
+
+<form  (submit)="procesar()" method="post">
+    <fieldset><legend> Grupo 1</legend>
+        <label for="chek"> OPCION 1 </label>
+    <input type="checkbox" name="check" value="1"  tabindex="1"> opcion 1<br>
+    <input type="checkbox" name="check" value="2" tabindex="2"> opcion 2<br>
+
+    
+<input type="radio" name="radio" value="1" checked> opcion 1<br>
+<input type="radio" name="radio" value="opcion 2"> opcion 2<br>
+
+</fieldset>
+<fieldset><legend> Grupo 2</legend>
+<select name="lista" size="">
+	<option value="1" selected> Opcion 1</option>
+	<option value="2"> Opcion 2</option>
+	<option value="3"> Opcion 3</option>
+</select>
+
+<br>
+<select name="Combo">
+	<option value="Opcion 1"> Opcion 1</option>
+	<option value="Opcion 2"> Opcion 2</option>
+	<option value="Opcion 3"> Opcion 3</option>
+</select>
+<br>
+</fieldset>
+<fieldset><legend>Grupo 3 </legend>
+<select name="colores[]" size="4" multiple>
+	<option value="1">Rojo</option>
+	<option value="2">Verde</option>
+	<option value="3">Azul</option>
+	<option value="4">Amarillo</option>
+	<option value="5">Blanco</option>
+	<option value="6">Negro</option>
+	<option value="7">Naranja</option>
+	<option value="8">Violeta</option>
+</select><br>
+</fieldset>
+<select name="articulo " multiple>
+    <optgroup label="Frutas">
+        <option value="1">Naranjas</option>
+        <option value="2">Manzanas</option>
+        <option value="3">Sandía</option>
+        <option value="4">Frutilla</option>
+        <option value="5">Durazno</option>
+        <option value="6">Ciruela</option>
+    </optgroup>
+    <optgroup label="Verduras">
+        <option value="7">Lechuga</option>
+        <option value="8">Acelga</option>
+        <option value="9">Zapallo</option>
+        <option value="10">Papas</option>
+        <option value="11">Batatas</option>
+        <option value="13">Zanahorias</option>
+        <option value="14">Rabanitos</option>
+        <option value="15">Calabaza</option>
+    </optgroup>
+</select>
+<br>
+<input type="text" name="cuadro" size="40" maxlength="256" required>
+
+<input type="number" name="cantidad" value="4" size="5" maxlength="5" min="0" max="5" step="1" disabled>
+
+Tipo password
+<input type="password" name="password" size="40" maxlength="256">
+
+Email
+<input type="email" name="email" size="40" maxlength="256">
+
+Texto multilineas
+<textarea name="textarea" cols="30" rows="5"></textarea>
+<input type="hidden" name="Escondido" value="hola">
+<br>
+Borrar
+<input type="reset" value="Reset">
+
+Enviar
+<input type="submit" value="Enviar">
+
+Evento generico.
+<input type="button" value="Boton">
+
+
+</form>
+
+
+<br>
+
+
+
+
+
+<table border="1">
+    <caption>Provincias y Capitales</caption>
+        <th>Provincia</th>
+        <th>Capital</th>
+     
+        <tr *ngFor=" let provincias of provincias">
+            <td>{{provincias.provincia}}</td>
+            <td>{{provincias.capital}}</td>
+           
+        </tr>
+     
+    </table>
+

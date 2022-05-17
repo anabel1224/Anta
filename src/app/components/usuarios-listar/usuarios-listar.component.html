@@ -1,0 +1,69 @@
+
+
+<div class="component"*ngIf="revelar">
+    <div class="col-md-4" *ngFor =" let usuario of usuarios; let i =index">
+        <!--{{usuario.nombre}}-->
+        
+    <!--<p *ngIf="usuario.rol=='admin'">  
+        {{usuario.nombre}}
+        {{usuario.rol}}<b>es el admin ;)</b>{{i}}
+    </p>-->
+    <p *ngIf="usuario.rol=='admin'; else user">{{usuario.nombre}} <b>es el admin ;)</b></p>
+    <ng-template #user>{{usuario.nombre}}<p> <em>es el user :D</em></p></ng-template>
+    
+      
+    </div>
+</div>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>password</th>
+        <th>Accion</th>
+    </thead>
+    <tbody *ngIf="usuarios.length > 0; else fila">
+        <tr *ngFor=" let usuario of usuarios">
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.password}}</td>
+        </tr>
+    </tbody>
+    <ng-template #fila>
+        <tbody>
+            <tr>
+                <td colspan="4">No hay mas filas</td>
+            </tr>
+        </tbody>
+    </ng-template>
+</table>
+
+<form (submit)="procesar()" method="post">
+    <fieldset>
+        <legend>Seleccion multiple</legend>
+        <table border="1">
+            <thead>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>password</th>
+                <th>Accion</th>
+            </thead>
+            <tbody *ngIf="usuarios.length > 0; else fila">
+                <tr *ngFor=" let usuario of usuarios">
+                    <td>{{usuario.id}}</td>
+                    <td>{{usuario.nombre}}</td>
+                    <td>{{usuario.password}}</td>
+                    
+            <td><input type="checkbox" value="{{usuario.id}}" (click)="addRemoveItem($event)"></td>
+                </tr>
+            </tbody>
+            <ng-template #fila>
+                <tbody>
+                    <tr>
+                        <td colspan="4">No hay mas filas</td>
+                    </tr>
+                </tbody>
+            </ng-template>
+        </table>
+        <button class="">Enviar</button>
+    </fieldset>
+</form>

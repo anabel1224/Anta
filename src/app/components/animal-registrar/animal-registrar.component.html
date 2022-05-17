@@ -1,0 +1,81 @@
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <style>
+        body {
+            min-height: 140vh;
+            background: url("https://marketplace.canva.com/EAEK4Wss3uY/1/0/1600w/canva-turquesa-perros-y-patas-estampa-linda-fondo-virtual-para-zoom-1wGtYfQb850.jpg ") no-repeat;
+        }
+    </style>
+ 
+
+  </head>
+  <body>
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Animal</h3>
+                    
+                </div>
+                <div class="card-body">
+                    <form (submit)="registrar()" method="post" >
+                        <div class="form-group">
+
+                            <input   type="text" name="nombre" [(ngModel)]="user.nombre" (focus)="limpiarNombre()" placeholder="Nombre" class="form-control">
+                            <div [ngSwitch]="errorNombre">
+                                <div *ngSwitchCase="1">Debes completar el campo</div>
+                                <div *ngSwitchCase="2">Nombre muy largo</div>
+                                <div *ngSwitchCase="3">Nombre debe ser alfabetico</div>
+                            </div>
+                            <input   type="text" name="apellido"   [(ngModel)]="user.apellido" placeholder="Apellido"  (focus)="limpiarApellido()"  class="form-control">
+                            <div [ngSwitch]="errorApellido">
+                                <div *ngSwitchCase="1">Debes completar el campo</div>
+                                <div *ngSwitchCase="2">apellido muy largo</div>
+                                <div *ngSwitchCase="3">Nombre debe ser alfabetico</div>
+                            </div>
+                            <input   type="text" name="raza" [(ngModel)]="user.raza" placeholder="Raza" (focus)="limpiarRaza()"  class="form-control">
+                            <div [ngSwitch]="errorRaza">
+                                <div *ngSwitchCase="1">Debes completar el campo</div>
+                                <div *ngSwitchCase="2">raza es muy largo</div>
+                                <div *ngSwitchCase="3">debe ser alabetico</div>
+                             
+                            </div>
+                            <input   type="text" name="sexo" [(ngModel)]="user.sexo" placeholder="Sexo : Hembra / Macho"  (focus)="limpiarSexo()" class="form-control">
+                            <div [ngSwitch]="errorSexo">
+                                <div *ngSwitchCase="1">Debes completar el campo</div>
+                                <div *ngSwitchCase="2">es muy largo</div>
+                                <div *ngSwitchCase="3">debe ser alabetico</div>
+                             
+                            </div>
+                            <input   type="text" name="edad"   [(ngModel)]="user.edad" placeholder="Edad" (focus)="limpiarEdad()"  class="form-control">
+                            <div [ngSwitch]="errorEdad">
+                                <div *ngSwitchCase="1">Debes completar el campo</div>
+                                <div *ngSwitchCase="2">edad muy largo solo ingresar 2 digitos</div>
+                                <div *ngSwitchCase="3">edad debe ser Numerico</div>
+                            </div>
+                            <input   type="text" name="descripcion"   [(ngModel)]="user.descripcion" placeholder="Descripcion" (focus)="limpiarDescripcion()"  class="form-control">
+                            <div [ngSwitch]="errorDescripcion">
+                                <div *ngSwitchCase="1">Debes completar el campo</div>
+                                <div *ngSwitchCase="2">descripcion es muy largo</div>
+                                <div *ngSwitchCase="3">debe ser alfabetico</div>
+                            </div>
+                           
+                            <button class="btn btn-success btn-block" (click)="verificarForm()">Enviar</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
